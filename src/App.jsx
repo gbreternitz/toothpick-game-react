@@ -98,6 +98,11 @@ function App() {
 
   // Start a new game.
   const startNewGame = (size) => {
+    
+    if (size > 9) {size = 9;};
+    if (size < 3) {size = 3;};
+
+    
     setBoardSize(size);
     setBoard(initializeBoard(size));
     setCurrentPlayer(1);
@@ -224,7 +229,7 @@ ${
               max="9"
               value={boardSize}
               onChange={(e) =>
-                startNewGame(parseInt(e.target.value) || 5)
+                startNewGame(parseInt(e.target.value) || 5) // Need to handle inputs larger than the max
               }
             />
             <button onClick={() => startNewGame(boardSize)}>New Game</button>
