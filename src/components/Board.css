@@ -1,0 +1,8 @@
+/* src/components/Board.css */
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(var(--boardSize), 50px);
+    gap: 2px;
+  }
+  

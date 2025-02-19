@@ -1,0 +1,40 @@
+/* src/components/Cell.css */
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+  }
+  
+  /* The 'flash-removal' class triggers a short red flash animation */
+  .flash-removal {
+    animation: flash-remove 0.4s;
+    /* This ensures onAnimationEnd fires on the .cell div */
+  }
+  
+  @keyframes flash-remove {
+    0% {
+      background-color: white;
+    }
+    50% {
+      background-color: red;
+    }
+    100% {
+      background-color: white;
+    }
+  }
+  
+  .symbol {
+    font-size: 24px;
+    transition: transform 0.25s ease-in-out;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
