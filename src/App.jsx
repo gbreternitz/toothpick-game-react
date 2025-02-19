@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Scoreboard from "./components/Scoreboard"
 
 // ---------- Game Logic Helpers ----------
 
@@ -98,11 +99,11 @@ function App() {
 
   // Start a new game.
   const startNewGame = (size) => {
-    
-    if (size > 9) {size = 9;};
-    if (size < 3) {size = 3;};
 
-    
+    if (size > 9) { size = 9; };
+    if (size < 3) { size = 3; };
+
+
     setBoardSize(size);
     setBoard(initializeBoard(size));
     setCurrentPlayer(1);
@@ -205,13 +206,12 @@ function App() {
 Final Score:
 Player 1: ${score.P1}
 Player 2: ${score.P2}
-${
-  score.P1 > score.P2
-    ? "Player 1 is the winner!"
-    : score.P1 < score.P2
-    ? "Player 2 is the winner!"
-    : "It's a tie!"
-}`
+${score.P1 > score.P2
+          ? "Player 1 is the winner!"
+          : score.P1 < score.P2
+            ? "Player 2 is the winner!"
+            : "It's a tie!"
+        }`
       );
     }
   }, [board, score]);
@@ -235,30 +235,23 @@ ${
             <button onClick={() => startNewGame(boardSize)}>New Game</button>
           </div>
           <hr />
-          <h3>Score</h3>
-          <p>Player 1: {score.P1}</p>
-          <p>Player 2: {score.P2}</p>
-          <hr />
-          <h3>Turn</h3>
-          <p>
-            <strong>Player {currentPlayer}'s Turn</strong>
-          </p>
-          <hr />
           <h3>How to Play</h3>
-          <p>Click on a cell to rotate a toothpick. Players alternate turns rotating one toothpick per turn.</p>
+          <p>Click on a cell to rotate a toothpick. Players take turns rotating one toothpick per turn.</p>
           <p>
-            A horizontal toothpick (—) becomes vertical (rotated 90°) and vice
-            versa.
+            When a toothpick's direction matches its neighbors, it is removed. Chain reactions may occur.
           </p>
           <p>
-            Players gain toothpicks that match the orientation of all their neighbors. Chain reactions may occur.
+            Players score points equal to the number of toothpicks removed as a result of their turn.
           </p>
           <p>
-            The winner has the most toothpicks after all toothpicks have been removed from the board.
+            The game ends when all toothpicks have been removed from the board.
           </p>
         </div>
-        <div className="board" style={{ "--boardSize": boardSize }}>
-          {renderBoard()}
+        <div className="game-area">
+          <div className="board" style={{ "--boardSize": boardSize }}>
+            {renderBoard()}
+          </div>
+          <Scoreboard scores={score} />
         </div>
       </div>
     </div>

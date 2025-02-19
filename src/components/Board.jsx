@@ -28,7 +28,7 @@ const Board = ({
         />
       );
     }
-  }
+  }sdf
 
   return (
     <div className="board" style={{ "--boardSize": boardSize }}>

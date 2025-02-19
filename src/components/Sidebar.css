@@ -1,8 +1,16 @@
 /* src/components/Sidebar.css */
 
 .sidebar {
-    width: 300px;
-    border: 1px solid #ccc;
-    padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    box-sizing: border-box; /* ensures padding doesn't break layout */
+    margin-bottom: 10px;    /* add some space below if needed */
   }
-  
+}

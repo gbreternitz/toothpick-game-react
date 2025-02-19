@@ -1,0 +1,11 @@
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .scoreboard > div {
+    margin: 0 20px;
+    text-align: center;
+  }
+  
