@@ -246,12 +246,16 @@ ${score.P1 > score.P2
           <p>
             The game ends when all toothpicks have been removed from the board.
           </p>
-        </div>
-        <div className="game-area">
-          <div className="board" style={{ "--boardSize": boardSize }}>
-            {renderBoard()}
+          <hr />
+          <div className="game-area">
+            <div className="board-wrapper">
+              <div className="board" style={{ "--boardSize": boardSize }}>
+                {renderBoard()}
+              </div>
+            </div>
+            <Scoreboard scores={score} />
+            <hr />
           </div>
-          <Scoreboard scores={score} />
         </div>
       </div>
     </div>

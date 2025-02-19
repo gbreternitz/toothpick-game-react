@@ -20,6 +20,7 @@
   display: grid;
   grid-template-columns: repeat(var(--boardSize), 50px);
   gap: 2px;
+  margin: 0 auto; /* This centers the board horizontally */
 }
 
 .cell {
@@ -36,4 +37,10 @@
 
 .symbol {
   transition: transform 0.25s ease-in-out;
+}
+
+.board-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
